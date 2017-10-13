@@ -65,7 +65,7 @@ train_txt = pd.read_csv('../train.txt', delimiter=' ', header=None)[[0,1]] #txt�
 myid2typeid = dict(enumerate(train_txt[1].unique())) #txt记录的类别是有空的，需要映射为连续的
 typeid2myid = {j:i for i,j in myid2typeid.items()}
 train_txt[1] = train_txt[1].apply(lambda s: typeid2myid[s])
-train_txt = train_txt.sample(frac=1) #打算训练数据集
+train_txt = train_txt.sample(frac=1) #打乱训练数据集
 train_txt.index = range(len(train_txt))
 train_imgs = list(train_txt[0])
 
